@@ -7,7 +7,9 @@ const options = {
 }
 const FeeCalc = require('fbacalc').FeeCalc;
 const feeCalculator = new FeeCalc(options)
-feeCalculator.calculateFBAFees(10, .02, [4.8, .9, .8] )
+const dimensions = [4.8, .9, .8];
+const weightInLbs = 1.5;
+feeCalculator.calculateFBAFees(dimensions, weightInLbs)
 .then(fee => {
   console.log(fee);
 })
@@ -20,5 +22,5 @@ feeCalculator.calculateFBAFees(10, .02, [4.8, .9, .8] )
 ```
 
 ### Methods:
-#### .calculateFee(cost, category, weight, [height, width, depth])
+#### .calculateFBAFees([height, width, depth], weightInLbs)
 

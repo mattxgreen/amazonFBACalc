@@ -24,7 +24,7 @@ export default class FeeCalc {
       isMedia = category in fees.variableClosingFee;
       size = this.determineSize(dimensions, weight);
       feeTotal += this.calculateFulfillmentFees(size, weight);
-      feeTotal += this.calculateThirtyDayStorage(dimensions, size);
+      feeTotal += this.calculateStorage(dimensions, size);
       resolve(parseFloat(feeTotal.toFixed(2)));
     })
   }
@@ -37,7 +37,7 @@ export default class FeeCalc {
       weight = dimWeight > weight ? dimWeight : weight;
       size = this.determineSize(dimensions, weight);
       feeTotal += this.calculateFulfillmentFees(size, weight);
-      feeTotal += this.calculateThirtyDayStorage(dimensions, size);
+      feeTotal += this.calculateStorage(dimensions, size);
       resolve(parseFloat(feeTotal.toFixed(2)));
     })
   }
@@ -122,7 +122,7 @@ export default class FeeCalc {
     return (total / 139.0).toFixed(2);
   }
 
-  private calculateThirtyDayStorage(dimensions, size) {
+  private calculateStorage(dimensions, size) {
     var storageFee = 0;
     var currentDate = new Date();
     var currentMonth = currentDate.getMonth();
