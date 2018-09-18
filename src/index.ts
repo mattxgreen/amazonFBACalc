@@ -3,7 +3,7 @@ import { TIERS } from './sizeTiers';
 import { merge } from 'lodash';
 
 // takes the price of the product, weight and dimensions and determines how much will be paid after fees
-export default class FeeCalc {
+export class FeeCalc {
   options = {
     inboundShippingPerPound: 1,
     debug: true
