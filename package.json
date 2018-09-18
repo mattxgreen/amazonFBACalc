@@ -1,6 +1,6 @@
 {
   "name": "amazonFBACalc",
-  "version": "0.9",
+  "version": "0.9.0",
   "description": "Calculate Amazon FBA Fees",
   "main": "index.js",
   "scripts": {
