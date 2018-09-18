@@ -2,8 +2,8 @@
 Promisified Amazon fee calculator
 ### Usage:
 ```
-const FeeCalc = require('fbacalc').FeeCalc;
-const feeCalculator = new FeeCalc()
+const FeeCalc = require('amazonFBACalc').FeeCalc;
+const feeCalculator = new FeeCalc();
 const dimensions = [4.8, .9, .8];
 const weightInLbs = 1.5;
 feeCalculator.calculateFBAFee(dimensions, weightInLbs)
