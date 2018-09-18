@@ -27,7 +27,7 @@ export default class FeeCalc {
       resolve(parseFloat(feeTotal.toFixed(2)));
     })
   }
-  public calculateFBAFees(dimensions, weight){
+  public calculateFBAFee(dimensions, weight){
     return new Promise(resolve => {
       var size;
       var feeTotal = 0;
