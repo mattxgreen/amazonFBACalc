@@ -1,7 +1,7 @@
 const assert = require('assert');
 const forEach = require('mocha-each')
 const Promise = require('bluebird');
-const FeeCalc = require('../index').FeeCalc;
+const FeeCalc = require('../').FeeCalc;
 const feeCalc = new FeeCalc({feeLogging: false});
 const items = [
   {
@@ -64,7 +64,7 @@ const items = [
 describe('Fee Calculator', () => {
   forEach(items)
   .it('Should calculate correct fee', (item) =>{
-    return feeCalc.calculateFBAFees(item.dimensions, item.weight)
+    return feeCalc.calculateFBAFee(item.dimensions, item.weight)
     .then(fee => assert.equal(fee, item.fee))
   });
 })
