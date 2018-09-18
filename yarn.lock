@@ -89,9 +89,9 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
-lodash@^3.10.1:
-  version "3.10.1"
-  resolved "http://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+lodash@^4:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 lru-cache@2:
   version "2.7.3"
@@ -122,6 +122,12 @@ mkdirp@0.5.1:
   dependencies:
     minimist "0.0.8"
 
+mocha-each@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/mocha-each/-/mocha-each-1.1.0.tgz#48732ef6132b7d8f16212afd7a4ed7261a65b9b4"
+  dependencies:
+    sprintf-js "^1.0.3"
+
 mocha@^2.3.2:
   version "2.5.3"
   resolved "http://registry.npmjs.org/mocha/-/mocha-2.5.3.tgz#161be5bdeb496771eb9b35745050b622b5aefc58"
@@ -144,6 +150,10 @@ ms@0.7.1:
 sigmund@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sigmund/-/sigmund-1.0.1.tgz#3ff21f198cad2175f9f3b781853fd94d0d19b590"
+
+sprintf-js@^1.0.3:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.1.tgz#36be78320afe5801f6cea3ee78b6e5aab940ea0c"
 
 sprintf-js@~1.0.2:
   version "1.0.3"
