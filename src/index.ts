@@ -1,6 +1,7 @@
-import * as fees from '../constants/category-fees';
-import { merge, sortBy } from 'lodash';
+import { feePercent, feeMin, variableClosingFee } from './fees';
 import { TIERS } from './sizeTiers';
+import { merge } from 'lodash';
+
 // takes the price of the product, weight and dimensions and determines how much will be paid after fees
 export default class FeeCalc {
   options = {
@@ -13,16 +14,14 @@ export default class FeeCalc {
   }
   public calculateAllFees(price, category, weight, dimensions){
     return new Promise(resolve => {
-      var isMedia = false;
-      var size;
-      var feeTotal = 0;
+      const isMedia = category in variableClosingFee;
+      const size = this.determineSize(dimensions, weight);
+      let feeTotal = 0;
       const dimWeight = this.getDimensionalWeight(dimensions);
       // Use largest of unit weight/dimensional weight
       weight = dimWeight > weight ? dimWeight : weight;
       // feeTotal = this.calculateReferralFee(price, category);
       // feeTotal += this.calculateVariableReferralFee(category);
-      isMedia = category in fees.variableClosingFee;
-      size = this.determineSize(dimensions, weight);
       feeTotal += this.calculateFulfillmentFees(size, weight);
       feeTotal += this.calculateStorage(dimensions, size);
       resolve(parseFloat(feeTotal.toFixed(2)));
@@ -61,8 +60,6 @@ export default class FeeCalc {
           return p;
         }, '')
       return size;
-    //   resolve(size);
-    // })
   }
   public calculateFulfillmentFees(size, weight){
     let price = 0;
@@ -93,12 +90,12 @@ export default class FeeCalc {
     var referralFee = 0;
 
     // check if category is in fees
-    if (category in fees.percentageFee) {
-      flatFee = fees.minimumFee[category];
-      percentageFee = fees.percentageFee[category] / 100;
+    if (category in feePercent) {
+      flatFee = feeMin[category];
+      percentageFee = feePercent[category] / 100;
     } else {
-      flatFee = fees.minimumFee["Everything Else"];
-      percentageFee = fees.percentageFee["Everything Else"] / 100;
+      flatFee = feeMin["Everything Else"];
+      percentageFee = feePercent["Everything Else"] / 100;
     }
 
     if ((percentageFee * price) < flatFee) {
@@ -109,13 +106,7 @@ export default class FeeCalc {
     return referralFee;
   }
   private calculateVariableReferralFee (category) {
-    var variableClosingFee = 0;
-
-    // check to see if this category has a variable closing fee
-    if(category in fees.variableClosingFee) {
-      variableClosingFee = fees.variableClosingFee[category];
-    }
-    return variableClosingFee;
+    return variableClosingFee[category] || 0;
   }
   private getDimensionalWeight(dimensions: number[]) {
     const total = dimensions.reduce((a, dim) => dim*a, 1)

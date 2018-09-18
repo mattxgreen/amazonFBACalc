@@ -1,7 +1,4 @@
-/**
- * Created by glickm on 9/14/15.
- */
-exports.percentageFee = {
+export const feePercent = {
   "3D Printed Products": 12,
   "Amazon Device Accessories": 45,
   "Amazon Kindle": 15,
@@ -42,7 +39,7 @@ exports.percentageFee = {
   "Everything Else": 15
 };
 
-exports.minimumFee = {
+export const feeMin = {
   "3D Printed Products": 0,
   "Amazon Device Accessories": 1,
   "Amazon Kindle": 0,
@@ -83,7 +80,7 @@ exports.minimumFee = {
   "Everything Else": 0
 };
 
-exports.variableClosingFee = {
+export const variableClosingFee = {
   "Books": 1.35,
   "Video & DVD": 1.35,
   "Music": 1.35,
