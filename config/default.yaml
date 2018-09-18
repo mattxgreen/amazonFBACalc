@@ -1,0 +1,21 @@
+inboundShippingPerPound: .50
+
+feeLogging: true
+
+maxLargeStandardWeight: 20
+maxLargeStandardDimensions:
+       - 18
+       - 14
+       - 8
+
+maxSmallStandardMediaWeight: 0.875
+maxSmallStandardNonMediaWeight: .75
+maxSmallStandardDimensions:
+  - 15
+  - 12
+  - .75
+
+maxSmallOversizeWeight: 70
+maxSmallOversizeDimensions:
+  - 60
+  - 30

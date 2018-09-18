@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "removeComments": true,
+        "outDir": "./lib",
+        "sourceMap": false,
+        "lib": ["es5","es6","es7","dom","dom.iterable"],
+        "typeRoots": [
+            "node_modules/@types",
+            "node_modules/nightmare-type-definitions/dist",
+            "types"
+        ]
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
