@@ -1,8 +1,6 @@
 import * as fees from '../constants/category-fees';
 import { merge, sortBy } from 'lodash';
 import { TIERS } from './sizeTiers';
-// const merge = require('lodash').merge;
-// const sortBy = require('lodash').sortBy;
 // takes the price of the product, weight and dimensions and determines how much will be paid after fees
 export default class FeeCalc {
   options = {
@@ -30,15 +28,13 @@ export default class FeeCalc {
       resolve(parseFloat(feeTotal.toFixed(2)));
     })
   }
-  public calculateFBAFees(price, category, weight, dimensions){
+  public calculateFBAFees(dimensions, weight){
     return new Promise(resolve => {
-      var isMedia = false;
       var size;
       var feeTotal = 0;
       const dimWeight = this.getDimensionalWeight(dimensions);
       // Use largest of unit weight/dimensional weight
       weight = dimWeight > weight ? dimWeight : weight;
-      isMedia = category in fees.variableClosingFee;
       size = this.determineSize(dimensions, weight);
       feeTotal += this.calculateFulfillmentFees(size, weight);
       feeTotal += this.calculateThirtyDayStorage(dimensions, size);

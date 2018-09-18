@@ -64,7 +64,7 @@ const items = [
 describe('Fee Calculator', () => {
   forEach(items)
   .it('Should calculate correct fee', (item) =>{
-    return feeCalc.calculateFBAFees(item.price, item.category, item.weight, item.dimensions)
+    return feeCalc.calculateFBAFees(item.dimensions, item.weight)
     .then(fee => assert.equal(fee, item.fee))
   });
 })
