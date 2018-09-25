@@ -1,7 +1,7 @@
 const assert = require('assert');
 const forEach = require('mocha-each')
 const Promise = require('bluebird');
-const FeeCalc = require('../').FeeCalc;
+const { FeeCalc } = require('../');
 const feeCalc = new FeeCalc({feeLogging: false});
 const items = [
   {
