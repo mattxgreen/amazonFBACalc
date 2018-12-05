@@ -1,5 +1,5 @@
 {
-  "name": "amazonFBACalc",
+  "name": "amazon-fba-calc",
   "version": "0.9.1",
   "description": "Calculate Amazon FBA Fees",
   "main": "lib/index.js",
@@ -16,6 +16,10 @@
   ],
   "author": "Matt Green",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/mattxgreen/amazonFBACalc"
+  }
   "dependencies": {
     "bluebird": "^3.5.2",
     "lodash": "^4"
