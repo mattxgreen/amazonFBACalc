@@ -2,7 +2,7 @@
 Promisified Amazon fee calculator
 ### Usage:
 ```
-const { FeeCalc } = require('amazonFBACalc');
+import { FeeCalc } from 'amazon-fba-calc';
 const feeCalculator = new FeeCalc();
 const dimensions = [4.8, .9, .8];
 const weightInLbs = 1.5;
